@@ -16,7 +16,7 @@ public abstract class BaseTree<Type> {
 	}
 
 	/** 
-	 * Methode zum Vergleich zweier Elemente für die innere Ordnung des Baums
+	 * Methode zum Vergleich zweier Elemente fï¿½r die innere Ordnung des Baums
 	 * @param a Erstes Element
 	 * @param b Zweites Element
 	 * @return <0, wenn a<b | >0, wenn a>b | 0, wenn a=b
@@ -24,8 +24,8 @@ public abstract class BaseTree<Type> {
 	protected abstract int compare(Type a, Type b);
 
 	/**
-	 * Neues Element hinzufügen
-	 * @param elem Hinzuzufügendes Element
+	 * Neues Element hinzufï¿½gen
+	 * @param elem Hinzuzufï¿½gendes Element
 	 */
 	public void add(Type elem) {
 		Node<Type> neu = new Node<Type>(elem);
@@ -35,6 +35,10 @@ public abstract class BaseTree<Type> {
 		}
 		Node<Type> node = root;				// Fall 2: Baum ist nicht leer
 		while (true) {
+			/*
+			 * Raise Level by 1 at every iteration.
+			 */
+			neu.setLevel(1);
 			int vgl = compare(elem, node.getValue());
 			if (vgl < 0) {					// kleiner
 				if (node.getLeft() == null) {
@@ -44,7 +48,7 @@ public abstract class BaseTree<Type> {
 				}
 				node = node.getLeft();
 			}
-			else if (vgl > 0) {				// größer
+			else if (vgl > 0) {				// grï¿½ï¿½er
 				if (node.getRight() == null) {
 					node.setRight(neu);
 					neu.setParent(node);
@@ -52,7 +56,7 @@ public abstract class BaseTree<Type> {
 				}
 				node = node.getRight();
 			}
-			else {							// gleich (nicht nochmal einfügen)
+			else {							// gleich (nicht nochmal einfï¿½gen)
 				return;
 			}
 		}
@@ -99,7 +103,7 @@ public abstract class BaseTree<Type> {
 	/**
 	 * Funktion zur Ausgabe des Baums unterhalb eines Knotens
 	 * @param current Knoten, dessen Teilbaum ausgegeben werden soll
-	 * @param prefix  Zur Einrückung
+	 * @param prefix  Zur Einrï¿½ckung
 	 */
 	public void printTree(Node<Type> current, String prefix) {
 		if (current == null) {
