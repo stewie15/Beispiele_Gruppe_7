@@ -1,4 +1,4 @@
-package A08_GraphZusammenhängend;
+package A08_GraphZusammenhaengend;
 
 import static org.junit.Assert.*;
 

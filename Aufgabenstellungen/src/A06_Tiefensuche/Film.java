@@ -4,24 +4,24 @@ public class Film {
 
 	private final String titel;
 	
-	private final double länge;
+	private final double lenght;
 
-	public Film(String titel, double länge) {
+	public Film(String titel, double lenght) {
 		this.titel = titel;
-		this.länge = länge;
+		this.lenght = lenght;
 	}
 
 	public String getTitel() {
 		return titel;
 	}
 
-	public double getLänge() {
-		return länge;
+	public double getLenght() {
+		return lenght;
 	}
 
 	@Override
 	public String toString() {
-		return titel + " (Länge: " + länge + ")";
+		return titel + " (Lï¿½nge: " + lenght + ")";
 	}
 
 }

@@ -1,12 +1,12 @@
-package A08_GraphZusammenhängend;
+package A08_GraphZusammenhaengend;
 
 import basisAlgorithmen.Graph;
 
 public class ConnectedComponents {
 	
 	/**
-	 * Retourniert die Anzahl der zusammenhängenden Komponenten eines Graphen
-	 * @param g zu prüfender Graph
+	 * Retourniert die Anzahl der zusammenhï¿½ngenden Komponenten eines Graphen
+	 * @param g zu prï¿½fender Graph
 	 * @return Anzahl der Komponenten
 	 */
 	public int getNumberOfComponents(Graph g) {
