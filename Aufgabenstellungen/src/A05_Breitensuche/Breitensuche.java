@@ -116,8 +116,7 @@ public class Breitensuche extends BaseTree<Integer> {
 				if (start.getParent() != null) {
 					Node<Integer> parent = start.getParent();
 					/*
-					 * Finde heraus, ob der übergebene Knoten links oder rechts ist und füge den
-					 * anderen Knoten hinzu
+					 * Nutze hilfsmethode und suche alle Knoten mit dem gleichen Level
 					 */
 					if (parent.left == parent) {
 						res.add(parent.right.getValue());
@@ -136,4 +135,47 @@ public class Breitensuche extends BaseTree<Integer> {
 		}
 		return res;
 	}
+	
+	/*
+	 * 	public static List<Node<Integer>> getAll(Node<Integer> n) {
+			List<Node<Integer>> res = new ArrayList<>();
+			Queue<Node<Integer>> q = new Queue<>();
+			Node<Integer> root = n;
+			
+			while(n.getParent() != null) {
+				n = n.getParent();
+				if(n.getParent() == null)
+					root = n;
+			}
+			
+			System.out.println(root.getValue());
+			res.add(n);
+			try {
+				q.enqueue(n.left);
+				q.enqueue(n.right);
+				while (q.getCount() > 0) {
+					Node<Integer> curr = q.dequeue();
+					if (curr == null) {
+						break;
+					}
+					if(!res.contains(curr))
+						res.add(curr);
+
+					if (curr.left != null)
+						q.enqueue(curr.left);
+					if (curr.right != null)
+						q.enqueue(curr.right);
+				}
+			} catch (QueueEmptyException e) {
+				e.printStackTrace();
+			}
+			
+			return res;
+		}
+		
+		for(Node<Integer> n : getAll(start)) {
+							if(n.getLevel() == start.getLevel())
+								res.add(n.getValue());
+						}
+	 */
 }
