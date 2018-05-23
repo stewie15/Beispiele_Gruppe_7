@@ -77,6 +77,31 @@ public class Breitensuche extends BaseTree<Integer> {
 		 * werden damit das untere Level gezählt wird. Level des Knoten wäre somit nicht
 		 * 1 und um das untere Level zu erreichen muss das Level um 1 erhöht werden.
 		 */
+		
+		/* Ist der nur ein Level gesucht so wird nur dieses Level hinzugefügt. */
+		if (level == 1) {
+			/*
+			 * überprüfe, ob Knoten ein Wurzelknoten ist. Wenn ja setze @param Parent mit
+			 * übergeordneten Knoten
+			 */
+			if (start.getParent() != null) {
+				Node<Integer> parent = start.getParent();
+				/*
+				 * Nutze hilfsmethode und suche alle Knoten mit dem gleichen Level
+				 */
+				if (parent.left == start) {
+					res.add(parent.right.getValue());
+				} else {
+					res.add(parent.left.getValue());
+				}
+			}
+			/*
+			 * ist der übergebene Knoten ein Wurzelknoten, dann füge nur diesen in die Liste
+			 * ein
+			 */
+			res.add(start.getValue());
+		}
+		
 		if (start.getParent() != null)
 			level++;
 
@@ -107,29 +132,7 @@ public class Breitensuche extends BaseTree<Integer> {
 				if (curr.right != null)
 					q.enqueue(curr.right);
 			}
-			/* Ist der nur ein Level gesucht so wird nur dieses Level hinzugefügt. */
-			if (level == 1) {
-				/*
-				 * überprüfe, ob Knoten ein Wurzelknoten ist. Wenn ja setze @param Parent mit
-				 * übergeordneten Knoten
-				 */
-				if (start.getParent() != null) {
-					Node<Integer> parent = start.getParent();
-					/*
-					 * Nutze hilfsmethode und suche alle Knoten mit dem gleichen Level
-					 */
-					if (parent.left == parent) {
-						res.add(parent.right.getValue());
-					} else {
-						res.add(parent.left.getValue());
-					}
-				}
-				/*
-				 * ist der übergebene Knoten ein Wurzelknoten, dann füge nur diesen in die Liste
-				 * ein
-				 */
-				res.add(start.getValue());
-			}
+			
 		} catch (QueueEmptyException e) {
 			e.printStackTrace();
 		}
@@ -137,6 +140,14 @@ public class Breitensuche extends BaseTree<Integer> {
 	}
 	
 	/*
+	 * Zusätzlich suche ich alle Knoten mit dem gleichen Level
+	 * (Alle Knoten einer Ebene (level))
+	 * 
+	 * Wenn diese Methode aufgerufen wird funktioniert der Test jedoch leider nicht.
+	 * Deswegen wurde die Methode auskommentiert und könnte jederzeit wieder neu
+	 * implementiert werden.
+	 * 
+	 * 
 	 * 	public static List<Node<Integer>> getAll(Node<Integer> n) {
 			List<Node<Integer>> res = new ArrayList<>();
 			Queue<Node<Integer>> q = new Queue<>();

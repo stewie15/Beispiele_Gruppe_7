@@ -78,14 +78,6 @@ public class Node<Type> {
 	}
 
 	public void setLevel(int i) {
-		this.level = newLevel(i);
-	}
-	
-	/*
-	 * Method to calculate new Level used in setter
-	 */
-	private int newLevel(int i) {
 		this.level = this.level + i;
-		return this.level;
 	}
 }

@@ -26,6 +26,8 @@ public class Demo {
 		System.out.println("Result of test 3 second function: " + bs.getBreadthFirstOrderForLevel(bs.getRoot(), 3));
 		System.out.println("Result of test 4 second function: " + bs.getBreadthFirstOrderForLevel(bs.find(3), 2));
 		System.out.println("Result of test 5 second function: " + bs.getBreadthFirstOrderForLevel(bs.find(11), 5));
+		System.out.println("Result own test: " + bs.getBreadthFirstOrderForLevel(bs.find(3), 1));
+		
 	}
 
 }
