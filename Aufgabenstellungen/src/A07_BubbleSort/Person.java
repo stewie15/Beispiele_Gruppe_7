@@ -24,13 +24,18 @@ public class Person {
 	 * @return <0, wenn a<b || =0, wenn a=b || >0, wenn a>b
 	 */
 	public int compareTo(Person p) {
-		if(p.nachname.compareTo(p.nachname) < 0) return -1;
-		if(p.nachname.compareTo(p.nachname) == 0) {
-			if(p.vorname.compareTo(p.vorname) < 0 ) return -1;
-			if(p.vorname.compareTo(p.vorname) > 0 ) return 1;
-			if(p.vorname.compareTo(p.vorname) == 0 ) return 0;
+		if(this.nachname.compareTo(p.nachname) < 0) return -1;
+		if(this.nachname.compareTo(p.nachname) == 0) {
+			if(this.vorname.compareTo(p.vorname) < 0 ) return -1;
+			if(this.vorname.compareTo(p.vorname) > 0 ) return 1;
+			if(this.vorname.compareTo(p.vorname) == 0 ) return 0;
 		}
 		return 1; 
+	}
+
+	@Override
+	public String toString() {
+		return "Person [nachname=" + nachname + ", vorname=" + vorname + "]";
 	}
 
 }

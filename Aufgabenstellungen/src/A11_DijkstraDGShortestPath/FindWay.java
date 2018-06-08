@@ -14,12 +14,12 @@ public abstract class FindWay {
 	}
 
 	/**
-	 * Liefert den Weg von (from) nach (to) als Liste zurück
+	 * Liefert den Weg von (from) nach (to) als Liste zurï¿½ck
 	 * @param from Startknoten
 	 * @param to Zielknoten
 	 * @return Weg von Start nach Ziel oder null
 	 */
-	public List<Integer> findWay(int from, int to) {
+	public List<Integer> findWay(int from, int to, boolean useChargeRoads) {
 		initPathSearch();
 		if (!calculatePath(from, to)) {
 			return null;
@@ -33,12 +33,12 @@ public abstract class FindWay {
 	abstract protected void initPathSearch();
 
 	/**
-	 * Berechnungsfunktion für Weg von (from) nach (to)
+	 * Berechnungsfunktion fï¿½r Weg von (from) nach (to)
 	 */
 	abstract protected boolean calculatePath(int from, int to);
 	
 	/**
-	 * Weg von (to) nach (from) aus Vorgängerknoten rekonstruieren
+	 * Weg von (to) nach (from) aus Vorgï¿½ngerknoten rekonstruieren
 	 * @param from Startknoten
 	 * @param to Zielknoten
 	 * @return Weg als Liste
